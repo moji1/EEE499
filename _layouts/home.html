@@ -4,19 +4,23 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="page-heading">News</h1>
   
   {{ content }}
 
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        <span class="post-meta">{{ post.date | date: date_format }} <br> </span>
+        <span class="post-content"> {{ post.title | escape }}</span>
+
+         <!--<a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a> -->
+            <div class="post-content" itemprop="articleBody">
+              {{ post.content }}
+            </div>
+
       </li>
     {% endfor %}
   </ul>
