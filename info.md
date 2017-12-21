@@ -6,7 +6,8 @@ permalink: /info/
 ### Instructor 
 [Mojtaba Bagherzadeh](http://flux.cs.queensu.ca/mase/member/bagherzadeh/), Goodwin Hall 624, mojtaba at cs dot queensu dot ca
 
-### Time and place   
+### Time and place  
+ 
 |---------|----------|-----------|
 | Moday | 9:00am-10:00am | s270 |
 | Moday | 9:00am-10:00am | s270 |
