@@ -27,7 +27,7 @@ email: mojtaba@cs.queensu.ca
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-dinky
+theme: minima
 #theme: brume
 plugins:
   - jekyll-feed
