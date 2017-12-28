@@ -9,7 +9,7 @@ permalink: /info/
 ### Time and place  
  
 |---------|----------|-----------|
-| Moday | 9:00am-10:00am | s270 |
+| Moday | 9:00am-09:50am | s270 |
 | Moday | 9:00am-10:00am | s270 |
 | Moday | 9:00am-10:00am | s270 |
 
