@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: E4999- Real-Time Embedded System Design Course Page (Winter 2018)
+title: EEE499- Real-Time Embedded System Design Course Page (Winter 2018)
 author: Copyright © 2017 Mojtaba Bagherzadeh. All Rights Reserved.
 email: mojtaba@cs.queensu.ca
 #description: >- # this means to ignore newlines until "baseurl:"

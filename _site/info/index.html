@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/info/">
-  <link rel="alternate" type="application/rss+xml" title="E4999- Real-Time Embedded System Design Course Page (Winter 2018)" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="EEE499- Real-Time Embedded System Design Course Page (Winter 2018)" href="/feed.xml">
   
   
 </head>
@@ -24,7 +24,7 @@
   <div class="wrapper">
     
     
-    <a class="site-title" href="/">E4999- Real-Time Embedded System Design Course Page (Winter 2018)</a>
+    <a class="site-title" href="/">EEE499- Real-Time Embedded System Design Course Page (Winter 2018)</a>
   
     
       <nav class="site-nav">
@@ -90,24 +90,53 @@
 <h3 id="time-and-place">Time and place</h3>
 
 <table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Component</th>
+      <th>Building</th>
+      <th>Room</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Moday</td>
-      <td>9:00am-09:50am</td>
-      <td>s270</td>
+      <td>Monday</td>
+      <td>9:00</td>
+      <td>9:50</td>
+      <td>Classroom</td>
+      <td>Sawyer Module 4</td>
+      <td>3411</td>
     </tr>
     <tr>
-      <td>Moday</td>
-      <td>9:00am-10:00am</td>
-      <td>s270</td>
+      <td>Tuesday</td>
+      <td>13:40</td>
+      <td>14:30</td>
+      <td>Classroom</td>
+      <td>Sawyer Module 4</td>
+      <td>3411</td>
     </tr>
     <tr>
-      <td>Moday</td>
-      <td>9:00am-10:00am</td>
-      <td>s270</td>
+      <td>Tuesday</td>
+      <td>14:40</td>
+      <td>16:30</td>
+      <td>Lab</td>
+      <td>Sawyer Module 1</td>
+      <td>5100</td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td>14:40</td>
+      <td>15:30</td>
+      <td>Classroom</td>
+      <td>Sawyer Module 4</td>
+      <td>3412</td>
     </tr>
   </tbody>
 </table>
+
+<!-- [My helpful screenshot](http://localhost:4000/assets/figures/courseTimes.png)   -->
 
 <h3 id="general-description">General Description</h3>
 <p>The main objectives of the course are to provide for the students:</p>
@@ -119,7 +148,14 @@
   <li>an introduction to the theory of scheduling for multitasking systems in a single processor environment.</li>
 </ul>
 
-<p>By the end of the course, the students will be able to analyze the requirements for a basic real-time system and to design and implement a solution using FreeRTOS or UML-RT. They should also be able to determine the schedulability of a simple multitasking system.</p>
+<p>By the end of the course, the students will be able to analyze the requirements for a basic real-time system and  design and implement a solution using FreeRTOS or UML-RT. They should also be able to determine the schedulability of a simple multitasking system.</p>
+
+<h3 id="teaching-method">Teaching Method</h3>
+<p>Course content will be presented to the students during class delivered lectures augmented by exercises and laboratories.</p>
+
+<p>Course notes and presentations be published in advance. The goal is to minimize as much as possible the taking of notes in order for the students to concentrate on understanding the content that is being taught. Note however that the documentation provides support to the theory being instructed and does not replace the lectures, you are therefore expected to supplement the material you are provided with your own note taking.</p>
+
+<p>I expect that you will activly participate, which means that you arrive in class with your notes, something to write with and your course text during lab period.</p>
 
 <h2 id="attendance">Attendance</h2>
 <p>As indicated in the CadWins, attendance to classes is compulsory for all officer-cadets. Civilian students and grad students are encouraged to attend classes and must be present to labs. If you must absent yourself for a medical or other kind of appointment, you are required to ask and obtain permission from the instructor prior to the appointment. If you happen to get sick, do your utmost to inform the instructor in the briefest of delays.</p>
@@ -127,14 +163,68 @@
 <h2 id="academic-integrity">Academic Integrity</h2>
 <p>Infractions to academic integrity; including cheating, plagiarism and any other kinds of university ethics violations can lead to sanctions from a written warning to expulsion from RMC. The RMC rules concerning studies, section 4, define plagiarism as follows: “Using the work of others and attempting to present it as original thought, prose or work. This includes allegations that are false concerning data or references, and the abusive use of quotation marks or the mention of a source” and it also includes: “the omission to recognize adequately the collaboration or outside help”. You should familiarize yourself with the rules with respect to academic misconduct available in <a href="https://www.rmcc-cmrc.ca/sites/default/files/1_Acad_integ-uni-bil.pdf">section 4 of the Academic Policy Directive No. 1 on Academic Integrity</a>.</p>
 
-<h3 id="material">Material</h3>
-
 <h3 id="evaluation">Evaluation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Laboratories</td>
+      <td>25%</td>
+    </tr>
+    <tr>
+      <td>Midterm</td>
+      <td>20%</td>
+    </tr>
+    <tr>
+      <td>Quizzes</td>
+      <td>10%</td>
+    </tr>
+    <tr>
+      <td>Final Exam</td>
+      <td>45%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note: If you have not completed all the laboratory work, you will not be allowed to write the final exam.</strong></p>
+
+<h3 id="laboratories">Laboratories</h3>
+<p>Laboratories must be completed by teams of two people. Each team must hand-in a quality lab report. The report will be presented in a prescribed format. It will include a description of the configuration/establishment of the laboratory, the code and/or data, as well as a general discussion of the conduct of the laboratory and observations, and any other pertinent discussion. Each diagram or elaboration of code will be well presented.</p>
+
+<h3 id="material-and-refrences">Material and Refrences</h3>
+<h4 id="programming-and-design-of-real-time-embedded-systems">Programming and Design of Real-Time Embedded systems</h4>
+<p><a href="https://www.amazon.ca/Real-Time-Systems-Programming-Languages-POSIX/dp/0321417453">Burns, A., &amp; Wellings, A. (2009). Real-Time Systems and Programming Languages: Ada, Real-Time Java and C/Real-Time POSIX. Addison-Wesley Educational Publishers Inc.</a></p>
+
+<p><a href="https://ece.uwaterloo.ca/~dwharder/icsrts/Lecture_materials/A_practical_introduction_to_real-time_systems_for_undergraduate_engineering.pdf">Harder, D. W., Zarnett, J.,  Montaghami V., &amp; Giannikouris A. (2016). A practical introduction to real-time systems for undergraduate engineering. University of Waterloo.</a></p>
+
+<p><a href="http://www.springer.com/us/book/9789400702578">Marwedel, P. (2011). Embedded System Foundations of Cyber-Physical Systems.</a></p>
+
+<h4 id="modeling-of-real-time-embedded-systems">Modeling of Real-Time Embedded systems</h4>
+
+<p><a href="https://wiki.eclipse.org/Papyrus-RT/User/User_Guide/Tutorials">Rivet, C, Posse, E, &amp; Toolan, D. (2017). Papyrus-RT/User/User Guide/Tutorials. Eclipse Foundation.</a></p>
+
+<p><a href="https://www.amazon.ca/Real-Time-Object-Oriented-Modeling-Bran-Selic/dp/0471599174">Selic, B., Gullekson, G., &amp; Ward, P. (1994). Real-time object oriented modeling and design.</a></p>
+
+<p><a href="https://www.amazon.com/Doing-Hard-Time-Developing-Addison-wesley/dp/0321774930">Douglass, B. P. (1999). Doing hard time: developing real-time systems with UML, objects, frameworks, and patterns (Vol. 1). Addison-Wesley Professional.</a></p>
+
+<p><a href="https://www.amazon.ca/Real-Time-Design-Patterns-Scalable-Architecture/dp/0201699567">DDouglass, B. P. (2003). Real-time design patterns: robust scalable architecture for real-time systems (Vol. 1). Addison-Wesley Professional.</a></p>
+
+<h4 id="freertos">FreeRTOS</h4>
+
+<p><a href="https://www.freertos.org/Documentation/161204_Mastering_the_FreeRTOS_Real_Time_Kernel-A_Hands-On_Tutorial_Guide.pdf">Barry, R. (2016). Mastering the FreeRTOS Real Time Kernel. Real Time Engineers ltd.</a></p>
+
+<p><a href="https://freertos.org/Documentation/FreeRTOS_Reference_Manual_V9.0.0.pdf">Barry, R. (2016). FreeRTOS V9.0.0 Reference Manual. Real Time Engineers ltd.</a></p>
 
 <h3 id="thanks-to">Thanks to</h3>
 <p>This course has evolved throughout the years and is the result of work from many people three of whom deserving special recognition:</p>
 
-<p>Alain Beaulieu, PhD 
+<p>Alain Beaulieu, PhD<br />
 M. Ron Smith, PhD<br />
 LCdr (ret) Dean Morrissey</p>
 
@@ -150,7 +240,7 @@ LCdr (ret) Dean Morrissey</p>
 
   <div class="wrapper">
     <!--
-    <h2 class="footer-heading">E4999- Real-Time Embedded System Design Course Page (Winter 2018)</h2>
+    <h2 class="footer-heading">EEE499- Real-Time Embedded System Design Course Page (Winter 2018)</h2>
     -->
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
