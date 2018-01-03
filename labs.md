@@ -3,13 +3,13 @@ layout: page
 title: Labs
 permalink: /Labs/
 ---
-# My main heading
-{: .intro }
 
-This is my initial paragraph. In it I’d like to provide a link to the [Jekyll homepage](http://jekyllrb.com/ "Jekyll"). I want to add **bold** and *italic* formatting to text as well using the `strong` and `emphasis` tags.
-
-This is another paragraph. I’d like to follow it with an unordered list.
-
-* item 1
-* item 2
-* item 3
+| Start           | Description                |   Submit |
+|-----------------|--------------------        |------------|
+| 12 Jan          | [Lab 1 : Introduction to Arduino and embedded systems]({{ "labssrc/lab1/lab1.html" | absolute_url }})       | 31 Jan     |
+|-----------------|----------------------------|------------|
+| 14 Feb          | [Lab 2 : Real-Time Scheduler]({{ "schedule.md" | absolute_url }})       | 15 Feb     |   
+|-----------------|----------------------------|------------|
+| 15 Feb          | [Lab 3: Design a Digital watch Using FreeRTOS]({{ "schedule.md" | absolute_url }})       | 15 Mar     | 
+|-----------------|----------------------------|------------|
+| 15 Mar          | [Lab 4: Design a Digital watch Using Papyrus-RT]({{ "schedule.md" | absolute_url }})       | 8  Apr     | 
