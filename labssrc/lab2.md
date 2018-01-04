@@ -1,6 +1,6 @@
 ---
 layout: page
-title: lab2
+title: Lab2
 
 ---
 
