@@ -6,7 +6,7 @@ permalink: /Schedule/
 
 Week | Date            | Description        |   Readings |
 -----|-----------------|--------------------|------------|
-1    | Monday,  8 Jan  | [Introduction](test)       | None       |
+1    | Monday,  8 Jan  | [Introduction]({{ "/assets/docs/session1-introduction.pdf" | absolute_url }})       | None       |
      |-----------------|----------------------------|------------|
      | Tuesday, 9 Jan  | [Real-Time Systems Applications](test)       | None       | 
      |-----------------|----------------------------|------------|
