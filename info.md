@@ -12,7 +12,7 @@ permalink: /info/
 |----------|--------|----------|-----------|----------      |------|
 | Monday   | 9:00   | 9:50     | Classroom | Sawyer Module 4| 3411 | 
 | Tuesday  | 13:40  | 14:30    | Classroom | Sawyer Module 4| 3411 | 
-| Tuesday  | 14:40  | 16:30    | Lab       | Sawyer Module 1| 5100 | 
+| Tuesday  | 14:40  | 16:30    | Lab       | Sawyer Module 1| 4126 | 
 | Friday   | 14:40  | 15:30    | Classroom | Sawyer Module 4| 3412 | 
  
 <!-- [My helpful screenshot]({{ "/assets/figures/courseTimes.png" | absolute_url }})   -->
