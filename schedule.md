@@ -8,7 +8,7 @@ Week | Date            | Description        |
 -----|-----------------|--------------------|------------|
 1    | Monday,  8 Jan  | [Introduction]({{ "/assets/docs/session1-introduction.pdf" | absolute_url }})       |
      |-----------------|----------------------------|------------|
-     | Tuesday, 9 Jan  | [Real-Time Systems Applications]({{ "/assets/docs/02 - Applications.pdf" | absolute_url }})       |  
+     | Tuesday, 9 Jan  | [Real-Time Systems Applications]({{ "/assets/docs/session2-applications.pdf" | absolute_url }})       |  
      |-----------------|----------------------------|------------|
      | Friday, 12 Jan | [Basic Terminology for Real-Time Systems](test)       |    
 -----|-----------------|----------------------------|------------|
