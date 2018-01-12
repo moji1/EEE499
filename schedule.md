@@ -10,7 +10,7 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Tuesday, 9 Jan  | [Real-Time Systems Applications]({{ "/assets/docs/session2-applications.pdf" | absolute_url }})       |  
      |-----------------|----------------------------|------------|
-     | Friday, 12 Jan | [Basic Terminology for Real-Time Systems](test)       |    
+     | Friday, 12 Jan | [Basic Terminology for Real-Time Systems]({{ "/assets/docs/session3-terminology.pdf" | absolute_url }}) |    
 -----|-----------------|----------------------------|------------|
 2    | Monday, 15 Jan | [Modeling Real-Time Systems](test)       | 
      |-----------------|----------------------------|------------|
