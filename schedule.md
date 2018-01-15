@@ -12,7 +12,7 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Friday, 12 Jan | [Basic Terminology for Real-Time Systems]({{ "/assets/docs/session3-terminology.pdf" | absolute_url }}) |    
 -----|-----------------|----------------------------|------------|
-2    | Monday, 15 Jan | [Modeling Real-Time Systems](test)       | 
+2    | Monday, 15 Jan | [Modeling Real-Time Tasks]({{ "/assets/docs/04-Task-Model.pdf" | absolute_url }})       | 
      |-----------------|----------------------------|------------|
      | Tuesday, 16 Jan | [Schedulability Part 1](test)       |  
      |-----------------|----------------------------|------------|
