@@ -200,7 +200,7 @@ Your lab report should include a cover page, a brief introduction, discussion an
 
 Your discussion should explain the design using the UML diagrams and text when necessary. You have to briefly explain what you have learned, findings that you have made, what was challenging in the lab. The discussion must not be a list of steps followed or empty sentences on the usefulness of the lab. Do not regurgitate the lab instructions back. Be concise! One paragraph of good discussion is worth a lot more than 10 pages of fill.
 
-Use the following format for your [report](../lab-report.docx).
+Use the following format for your [report]({{ "/assets/docs/lab-report.docx" | absolute_url }}).
 
 ### Submission
 
