@@ -12,15 +12,15 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Friday, 12 Jan | [Basic Terminology for Real-Time Systems]({{ "/assets/docs/session3-terminology.pdf" | absolute_url }}) |    
 -----|-----------------|----------------------------|------------|
-2    | Monday, 15 Jan | [Modeling Real-Time Tasks]({{ "/assets/docs/04-Task-Model.pdf" | absolute_url }})       | 
+2    | Monday, 15 Jan | [Modeling Real-Time Tasks-1]({{ "/assets/docs/04-Task-Model.pdf" | absolute_url }})  | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 16 Jan | [Schedulability Part 1](test)       |  
+     | Tuesday, 16 Jan |[Modeling Real-Time Tasks-2]({{ "/assets/docs/04-Task-Model.pdf" | absolute_url }})  |  
      |-----------------|----------------------------|------------|
-     | Friday, 19 Jan | [Schedulability Part 2](test)       |    
+     | Friday, 19 Jan | [Schedulability Part 1]({{ "/assets/docs/05-Schedulers.pdf" | absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
-3    | Monday, 22 Jan | [Schedulability Part 3](test)       | 
+3    | Monday, 22 Jan | [Schedulability Part 2](test)       | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 23 Jan | [Schedulability Part 4](test)       |  
+     | Tuesday, 23 Jan | [Schedulability Part 3](test)       |  
      |-----------------|----------------------------|------------|
      | Friday, 26 Jan | [Schedulability (exercise and solution)](test)       |    
 -----|-----------------|----------------------------|------------|
