@@ -20,7 +20,7 @@ Week | Date            | Description        |
 -----|-----------------|----------------------------|------------|
 3    | Monday, 22 Jan | [Schedulability Part 2]({{ "/assets/docs/06-Schedulability-Part-1.pdf" | absolute_url }})       | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 23 Jan | [Schedulability Part 3](test)       |  
+     | Tuesday, 23 Jan | [Schedulability Part 3]({{ "/assets/docs/07 - Schedulability Part 2.pdf" | absolute_url }})       |  
      |-----------------|----------------------------|------------|
      | Friday, 26 Jan | [Schedulability (exercise and solution)](test)       |    
 -----|-----------------|----------------------------|------------|
