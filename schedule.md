@@ -16,23 +16,23 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Tuesday, 16 Jan |[Modeling Real-Time Tasks-2]({{ "/assets/docs/04-Task-Model.pdf" | absolute_url }})  |  
      |-----------------|----------------------------|------------|
-     | Friday, 19 Jan | [Schedulability Part 1]({{ "/assets/docs/05-Schedulers.pdf" | absolute_url }})       |    
+     | Friday, 19 Jan | [SScheduling  and  Schedulers]({{ "/assets/docs/05-Schedulers.pdf" | absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
-3    | Monday, 22 Jan | [Schedulability Part 2]({{ "/assets/docs/06-Schedulability-Part-1.pdf" | absolute_url }})       | 
+3    | Monday, 22 Jan | [Schedulability Part 1]({{ "/assets/docs/06-Schedulability-Part-1.pdf" | absolute_url }})       | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 23 Jan | [Schedulability Part 3]({{ "/assets/docs/07 - Schedulability Part 2.pdf" | absolute_url }})       |  
+     | Tuesday, 23 Jan | Extra Lab       |  
      |-----------------|----------------------------|------------|
-     | Friday, 26 Jan | [Schedulability (exercise and solution)](test)       |    
+     | Friday, 26 Jan | [Schedulability Part 2]({{ "/assets/docs/07 - Schedulability Part 2.pdf" | absolute_url }}) - [Example Solutions]({{ "/assets/docs/07 - Schedulability Part 2-examples.pdf" | absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
-4    | Monday, 29 Jan | [Real-Time Operating System](test)       | 
+4    | Monday, 29 Jan | [Schedulability Part 3]({{ "/assets/docs/08-Schedulability-Part-3.pdf" | absolute_url }})        | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 30 Jan | Schedulability Quiz       |  
+     | Tuesday, 30 Jan | [Schedulability Exercise 3]       |  
      |-----------------|----------------------------|------------|
      | Friday, 2 Feb | [FreeRTOS Part1](test)       |    
 -----|-----------------|----------------------------|------------|
 5    | Monday, 5 Feb | [FreeRTOS Part2](test)       | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 6 Feb | [FreeRTOS Part3](test)       |  
+     | Tuesday, 6 Feb | Schedulability Quiz       |  
      |-----------------|----------------------------|------------|
      | Friday, 9 Feb | [FreeRTOS Part4](test)       |    
 -----|-----------------|----------------------------|------------|
