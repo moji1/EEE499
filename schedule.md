@@ -24,9 +24,9 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Friday, 26 Jan | [Schedulability Part 2]({{ "/assets/docs/07 - Schedulability Part 2.pdf" | absolute_url }}) - [Example Solutions]({{ "/assets/docs/07 - Schedulability Part 2-examples.pdf" | absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
-4    | Monday, 29 Jan | [Schedulability Part 3]({{ "/assets/docs/08-Schedulability-Part-3.pdf" | absolute_url }})        | 
+4    | Monday, 29 Jan | [Schedulability Part 3]({{ "/assets/docs/08-Schedulability-Part-3.pdf" | absolute_url }} )   | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 30 Jan | [Schedulability Exercise 3]       |  
+     | Tuesday, 30 Jan | [Schedulability Exercise 3]({{ "/assets/docs/08-solution.pdf" | absolute_url }})       |  
      |-----------------|----------------------------|------------|
      | Friday, 2 Feb | [FreeRTOS Part1](test)       |    
 -----|-----------------|----------------------------|------------|
