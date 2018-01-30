@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Lab2</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/labssrc/lab2/lab2.html">
+  <link rel="alternate" type="application/rss+xml" title="EEE499- Real-Time Embedded System Design Course Page (Winter 2018)" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">EEE499- Real-Time Embedded System Design Course Page (Winter 2018)</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/404.html"></a>
+            
+          
+            
+            
+            <a class="page-link" href="/"></a>
+            
+          
+            
+            
+            <a class="page-link" href="/info/">Course Information</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/Labs/">Labs</a>
+            
+          
+            
+            
+            <a class="page-link" href="/assets/main.css"></a>
+            
+          
+            
+            
+            <a class="page-link" href="/Schedule/">Schedule</a>
+            
+          
+            
+            
+            <a class="page-link" href="/feed.xml"></a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Lab2</h1>
+  </header>
+
+  <div class="post-content">
+    <h2 id="objectives">Objectives</h2>
+
+<p>In Lab 1 you learned how to use the <code class="highlighter-rouge">delay()</code> function to coordinate some actions at specific intervals. As useful as the <code class="highlighter-rouge">delay()</code> function was; it only serves to pause the program which in reality halts the <code class="highlighter-rouge">loop()</code> function. This has for effect to put the processor in a wait state; which similarly to a spinlock is wasteful. Interrupts are useful as they allow us to momentarily suspend the execution of the <code class="highlighter-rouge">loop()</code> software, go perform some action(s) within an Interrupt Service Routine (ISR) and resume execution of <code class="highlighter-rouge">loop()</code> without losing clock cycles. This lab is an introduction to using timers to control the flow of a real-time application with multiple tasks.</p>
+
+<p>In the first part of the lab, you will learn how to:</p>
+
+<ul>
+  <li>Initialize the registers of timers that are available with your Arduino.</li>
+  <li>Write an ISR that uses the timer interrupts to perform some actions. In this first part of the lab you will be toggling the LEDs on your board on and off.</li>
+</ul>
+
+<p>In the second part of the lab, you will implement different scheduling mechanisms based on the policy that is given to you in the lab instructions.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The Arduino Mega 2560 has six timers that can be used to generate interrupts at programmable intervals. Timer 0 and 2 are eight bit timers while Timers 1,3,4 and 5 are 16 bit timers. When using timers, we have to be aware that the Arduino’s designers have also used timers to implement the Application Programming Interface. When using libraries provided by other parties, one also has to be aware of any interrupts or timers used as part of the library before designing a solution. The timers are used by the following functions of the Arduino API:</p>
+
+<ol>
+  <li>Timer0 used for <code class="highlighter-rouge">delay()</code>, <code class="highlighter-rouge">millis()</code> and <code class="highlighter-rouge">micros()</code></li>
+  <li>Timer1 used for the <code class="highlighter-rouge">Servo()</code> library.</li>
+  <li>Timer2 used for the <code class="highlighter-rouge">Tone()</code> library.</li>
+  <li>Timers 3, 4 and 5 are not linked to any library which we are currently concerned about.</li>
+</ol>
+
+<p>The timers are also mapped to pins for Pulse Width Modulation (PWM). We are not using PWM in this lab so we need not worry. If you were using PWM in other projects along with timers, you would need to research this.</p>
+
+<p>In this lab we will be using Timers 1, 3, 4 and 5. We will not be using the <code class="highlighter-rouge">Servo()</code> library so using Timer1 will not cause us any problems.</p>
+
+<p>In order to have full control over the hardware, we will be using the register of the Arduino 2560 directly, the processor is an <a href="http://www.atmel.com/images/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf">Atmel ATmega2560/V</a>, refer to the datasheet if you do not find the information that you think you need and that is not included in the lab instruction. The use of timers requires a detailed knowledge of the hardware you are using that is normally hidden by the Arduino API.</p>
+
+<p>Before setting any Timer registers, you are required to <a href="https://www.arduino.cc/en/Reference/NoInterrupts">disable the interrupts</a>.</p>
+
+<p>Timers have control registers allowing to reset, clear flags, preload values and prescale. You need to understand the purpose and the functionning of each register. Here we only list the registers and bits that are needed for the lab, there is a lot more in the documentation.</p>
+
+<ul>
+  <li>TCCRx - Timer/Counter Control Register. The x stands for the number of the timer, 0..5. This register has two control words, TCCRxA and TCCRxB/
+    <ul>
+      <li>The TCCRxA controls the Output Compare Mode for both the PWM and non-PWM modes. It also controls the Waveform Generation Mode (WGM). In this lab we will not use these modes so you need to initialize each TCCRxA to 0. For example for Timer 1 you would have <code class="highlighter-rouge">TCCR1A = 0;</code></li>
+      <li>The TCCRxB controls the setting of the WGM mode for TCCRxA which we will not use. What is important to us is that this register controls the prescaler for each timer through the setting of three Clock Select bits CSx0, CSx1 and CSx2, i.e. TCCR1B is the prescaler for Timer 1. The prescaler allows you to divide the clock in order to have a longer period between interrupts.</li>
+      <li>In order to ensure that we have our desired mode of operation, we must initialize B to 0: <code class="highlighter-rouge">TCCR1B = 0;</code></li>
+    </ul>
+  </li>
+  <li>TCNTx - Timer Count Register for timer x. In this register you preload the value of the counter to start from. We could start counting from 0, but as we will see it is sometimes better to start counting from a non-zero value to have more control on the timer interrupt.</li>
+  <li>TIMSKx - Timer Interrupt Mask Register, this registers allows us to determine what kind of interrupt we want our timer to generate. There are three bits in this register, two of them control the Output Compare Match function of the register, the bit we are interested in is the Timer Overflow Interrupt Enable bit or the TOIEx bit.</li>
+</ul>
+
+<h3 id="libraries">Libraries</h3>
+
+<p>You must include the following libraries in your code.</p>
+
+<ul>
+  <li>avr/io.h</li>
+  <li>avr/interrupt.h</li>
+</ul>
+
+<h3 id="prescaling">Prescaling</h3>
+
+<p>The clock for the Arduino Mega 2560 is a 16MHz clock. So the clock could potentially provide you with 16 million “counts” per second, quickly overflowing the registers causing frequent interrupts. Although this could be useful for some applications, most programs will require a longer period between interrupts. The Atmel ATmega2560/V microcontroller allows us to program our timers to have different frequencies. As well, there are several ways to control the behaviour of the timers.</p>
+
+<p>Let us first consider the <em>Prescaling</em> of timers. We can program a timer to accumulate hardware clock pulses before they increase their count instead of doing it every clock pulse. For example, I could program my timer to get 256 pulses from the clock before I increase the counter in my timer. So if I divide the clock speed by the prescaler: 16 000 000 / 256 = 62 500 counts per second.</p>
+
+<h3 id="setting-up-prescale-register-tccrxb">Setting up Prescale Register TCCRxB</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>CSx2</th>
+      <th>CSx1</th>
+      <th>CSx0</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Aucune horloge source - chrono arrêté</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Horloge / 1 - aucune échelle</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Horloge / 8 du génateur d’échelle</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Horloge / 64 du génateur d’échelle</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Horloge / 256 du génateur d’échelle</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Horloge / 1024 du génateur d’échelle</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Horloge externe - broche 1 front descendant</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Horloge externe - broche 1 front montant</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There are a few methods to load the TCCRxB register with the prescaler:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TCCR1B</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">CS12</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>load CS12 of TCCR1B with 1 using logical shift left : 100, 256 prescaler</p>
+
+<p>or</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TCCR1B</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">CS12</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">CS10</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>load CS12 and CS10 with 1 : 101, 1024 prescaler</p>
+
+<p>or</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TCCR1B</span> <span class="o">=</span> <span class="mh">0x05</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>first three bits are CS10 to CS12 : 101, again 1025 prescaler</p>
+
+<h3 id="pre-loading">Pre-loading</h3>
+
+<p>In the previous example given in prescaling, we have a register that will count 62 500 pulses a second. To get a 1Hz interrupt, we would want to get an interrupt after those 62 500 pulses. However, Timer 1, 3, 4 and 5 are using 16 bit registers which counts $2^16 = 65 536$. Our interrupt would only occur another 3036 pulses (65536-62500) after our required 1 Hz. More precisely, our interrupt would occur every 1.00486 seconds so if we want to reach a count of 65 536 within a second, we cannot start counting from 0 but rather from 3036. i.e. <code class="highlighter-rouge">TCNT1 = 3036;</code>. <strong>Important:</strong> you need to reload the register within the Interrupt Service Routine.</p>
+
+<p>The above example would produce an interrupt every one second. For a higher frequency using the same prescaling we divide the clock further by the desired frequency to recalculate a new pre-loading number. For a 16 bits timer and a clock speed of 16 Mhz the number of interrupts per second = 65536 - (16 000 000/scale/frequency).</p>
+
+<ul>
+  <li>So for a 2 Hz signal we would have 65536 - (16 000 000 / 256 / 2) = 34286. This means that we start counting at 34286 instead of 3036 which will give us our interrupt a lot sooner.</li>
+  <li>For longer period interrupts you may need to use a 1024 prescaler.</li>
+</ul>
+
+<h3 id="interrupt-mode">Interrupt Mode</h3>
+
+<p>All that is left to do is now to set the interrupt mode for our Timer register. There are many ways to work the timers, PWM, Output Compare Mode, Waveform Generation Mode and overflow mode. What we will use for this lab is the overflow mode. When a timer counter reaches its maximum value (for a 16 bit counter 65535) the counter will overflow and trip the overflow flag. This is the event we want to capture for our timer interrupts. To do so, you must initialize the Timer Interrupt Mask Register TIMSKx and set the Timer Overflow Interrupt Enable bit to 1:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TIMSK1</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">TOIE1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>which sets the Timer for Overflow interrupt</p>
+
+<h3 id="interrupt-vectors">Interrupt Vectors</h3>
+
+<p>Once your timers are set to cause interrupts at certain frequencies, you must write the Interrupt Service Routines (ISRs) The ISRs for the Timers are functions that are called by the hardware. Each overflow timer vector has the form:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ISR Vectors
+</span>
+<span class="n">ISR</span><span class="p">(</span><span class="n">TIMERx_OVF_vect</span><span class="p">)</span> <span class="c1">// replace x by the proper timer
+</span><span class="p">{</span>
+	<span class="c1">// Put your code here
+</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="part-1---timer-based-output-at-various-frequencies">Part 1 - Timer Based Output at Various Frequencies</h2>
+
+<p>Create a new project and name it something like part1_partnerName1_partnerName2.ino. In this first part you are to create four different timers using Timers 1, 3, 4 and 5. Each ISR for overflow timers must toggle the four LEDs.</p>
+
+<p>We will use the same setup as for lab 1. So plug in the ground and the power on the GND and VCC ports respectively. Then plug the diodes on the digital ports 22, 24, 26, 28 using wires and connectors available in the lab.</p>
+
+<p><img src="test-board.png" alt="test board" /></p>
+
+<p>Implement the following requirement:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Timer</th>
+      <th>LED</th>
+      <th>Frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>22</td>
+      <td>10 Hz</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>24</td>
+      <td>1 Hz</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>26</td>
+      <td>0.5 Hz</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>28</td>
+      <td>0.25 Hz</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="part-2---timerclock-scheduling">Part 2 - Timer/Clock Scheduling</h2>
+
+<p>Create a new project and name it something like part2_partnerName1_partnerName2.ino. In this part you will be implementing a Timer/Clock Driven Scheduler. Specifically you are to find and implement a non-preemptive schedule for the following task set τ<sub>1</sub>= (4,1), τ<sub>2</sub>= (5,1.5), τ<sub>3</sub> = (20,1) , τ<sub>4</sub> = (20,2), where the times are in seconds. We came up with the following fixed schedule that you must implement.</p>
+
+<p><img src="TimerScheduler.png" alt="Timer Scheduler" /></p>
+
+<p>Each task turns on its respective LED, i.e. task 1 turns on LED 1 on pin 22 … and task 4 turns on LED 4 on pin 28. The LED stays on for the duration of the task, i.e. task 1 turns its LED on when it starts and one second later when it finishes, it will turns it off.</p>
+
+<p>Note that the function <code class="highlighter-rouge">digitalWrite()</code> only requires a few micro-seconds to execute so it will not fill the time slot. In order for the task to have the specified duration, you will need to put a delay between LOW and HIGH. However, the <code class="highlighter-rouge">delay()</code> function or the <code class="highlighter-rouge">millis()</code> functions do not work when any kind of timer is enabled. So to create your delay, you need to use a loop; 1 000 000 iterations in a loop will give you about 1 second. Because of some compiler optimization, a loop will be ignored if you use a normal variable as the loop counter. You need to use the <code class="highlighter-rouge">volatile</code> modifier. Be also careful of the maximum value that can be represented by a given variable type.</p>
+
+<h2 id="part-3---priority-based-non-preemptive-scheduling">Part 3 - Priority-Based Non-Preemptive Scheduling</h2>
+
+<p>In this part you will create a non-preemptive priority-based dynamic scheduler. This means that once a task is given the processor it runs to completion. We will assume that no blocking for resources is possible. A task will only block when it is waiting for its next execution.</p>
+
+<p>You are to implement the following:</p>
+
+<ol>
+  <li>A typedef struct called <code class="highlighter-rouge">tskTCB</code> that includes a task’s priority, period, max execution time, and remaining tics.</li>
+  <li>A ready queue in the form of a linked list</li>
+  <li>A blocked queue for when the tasks delay themselves; also in the form of a linked list</li>
+  <li>A <code class="highlighter-rouge">sleep()</code> function that the tasks can call to delay their next release.
+    <ul>
+      <li>Each time a task executes it calls the <code class="highlighter-rouge">Sleep()</code> function to delay itself a number of ticks (50ms).</li>
+      <li>The function moves the node from the ready queue to the blocked queue.</li>
+    </ul>
+  </li>
+  <li>A clock tick ISR that runs every 50ms.
+    <ul>
+      <li>Each time the clock tick ISR runs, it inspects the blocked queue updates the next release time of each task by decrementing the remaining ticks.</li>
+      <li>If the number of remaining ticks is 0 after the update, the ISR moves the node to the ready queue.</li>
+      <li>When all the nodes of the blocked queue have been updated and the appropriate tasks have been moved back to the ready queue the ISR calls the scheduler.</li>
+    </ul>
+  </li>
+  <li>A priority-based scheduler that runs every clock tick, as it is called by the clock tic ISR.
+    <ul>
+      <li>the scheduler is to inspect the ready queue and select the next highest priority task to run.</li>
+    </ul>
+  </li>
+  <li>Use the same task set as in Part 2.</li>
+  <li>Your scheduler must be generic enough that if a new set of tasks was given, it could handle it.</li>
+</ol>
+
+<h2 id="part-4---dynamic-priority-preemptive-scheduling">Part 4 - Dynamic Priority Preemptive Scheduling</h2>
+
+<p><strong>More directions will be provided during week 2. Start this part of the lab at your own risk. Requirements may change</strong></p>
+
+<p>Expend on the scheduler you created in the previous part so that it supports preemption and it calculates the priority of tasks dynamically according to the EDF* algorithm seen in class.</p>
+
+<p>The tasks that are to be implemented for this part are the same as for part 3 in addition to the following:</p>
+
+<ul>
+  <li>A task that reads the provided temperature sensor every 10 seconds.</li>
+  <li>A task that displays the temperature on the LCD. Use</li>
+  <li>A task that handles one of the pushbuttons on the test board so that it toggles the display between Celcius and Fahrenheit. Use interrupts for the button.</li>
+</ul>
+
+<p>Select the appropriate periods, execution time, deadlines and precedence for each of the new tasks. Include your rational in the lab report. Also provide a schedulability analysis.</p>
+
+<p>In order to implement preemption, you will need to save the context of the executing task. This involves saving registers, which can only be done with assembly. To get an idea of how it can be done, have a look at the <a href="https://create.arduino.cc/projecthub/feilipu/using-freertos-multi-tasking-in-arduino-ebc3cc">FreeRTOS port for Arduino</a>.</p>
+
+<p>To implement an interrupt-driven input, you will need to use one of the interrupt enabled pin on the Arduino. The Mega 2560 has 6 of them: 2, 3, 18, 19, 20, and 21. We recommend you try the interrupt to turn on one of the LED before integrating into the bigger program. Beware of bouncing of the pushbutton as it will trigger multiple interrupts.</p>
+
+<h2 id="lab-report">Lab report</h2>
+
+<p>Your lab report should include a cover page, a brief introduction, discussion and conclusion.</p>
+
+<p>Your discussion should explain your design using appropriate diagrams (UML, precedence, schedule, etc.) when necessary.</p>
+
+<p>Use the following format for your <a href="http://localhost:4000/assets/docs/lab-report.docx">report</a>.</p>
+
+<h3 id="submission">Submission</h3>
+
+<p>You must submit your lab report in <em>PDF</em> format and your code by e-mail in a <em>.zip</em> file.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <!--
+    <h2 class="footer-heading">EEE499- Real-Time Embedded System Design Course Page (Winter 2018)</h2>
+    -->
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Copyright © 2017 Mojtaba Bagherzadeh. All Rights Reserved.
+            
+            </li>
+            
+            <li><a href="mailto:mojtaba@cs.queensu.ca">mojtaba@cs.queensu.ca</a></li>
+            
+        </ul>
+      </div>
+      <!--
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+      -->
+      <!--
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+     -->
+    </div>
+    
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
