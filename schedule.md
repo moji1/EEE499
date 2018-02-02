@@ -28,7 +28,7 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Tuesday, 30 Jan | [Schedulability Exercise 3]({{ "/assets/docs/08-solution.pdf" | absolute_url }})       |  
      |-----------------|----------------------------|------------|
-     | Friday, 2 Feb | [FreeRTOS Part1](test)       |    
+     | Friday, 2 Feb | [EDF, LDF, multiprocessor scheduling and anomalies]({{"/assets/docs/09-Precedence.pdf" | absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
 5    | Monday, 5 Feb | [FreeRTOS Part2](test)       | 
      |-----------------|----------------------------|------------|
