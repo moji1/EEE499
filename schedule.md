@@ -30,17 +30,17 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Friday, 2 Feb | [EDF, LDF, multiprocessor scheduling and anomalies]({{"/assets/docs/09-Precedence.pdf" | absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
-5    | Monday, 5 Feb | [FreeRTOS Part2](test)       | 
+5    | Monday, 5 Feb | [Introduction to RTOS]({{ "/assets/docs/RTOS1-Introduction to RTOS.pdf" | absolute_url }} )       | 
      |-----------------|----------------------------|------------|
      | Tuesday, 6 Feb | Schedulability Quiz       |  
      |-----------------|----------------------------|------------|
-     | Friday, 9 Feb | [FreeRTOS Part4](test)       |    
+     | Friday, 9 Feb | [FreeRTOS Part1](test)       |    
 -----|-----------------|----------------------------|------------|
-6    | Monday, 12 Feb | [FreeRTOS Part5](test)       | 
+6    | Monday, 12 Feb | [FreeRTOS Part2](test)       | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 13 Feb | [FreeRTOS Part6](test)       |  
+     | Tuesday, 13 Feb | [FreeRTOS Tutorial](test)       |  
      |-----------------|----------------------------|------------|
-     | Friday, 16 Feb | [FreeRTOS Part7](test)       |    
+     | Friday, 16 Feb | [FreeRTOS Part3](test)       |    
 -----|-----------------|----------------------------|------------|
 7    | Monday, 19 Feb | [Reading Week](test)       | 
      |-----------------|----------------------------|------------|
@@ -48,13 +48,13 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Friday, 23 Feb | [Reading Week](test)       |    
 -----|-----------------|----------------------------|------------|
-8    | Monday, 26 Feb | [FreeRTOS Discussion and Conclusion](test)       | 
+8    | Monday, 26 Feb | [FreeRTOS Part4](test)       | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 27 Feb | [Reliability of Software Part 1](test)       |  
+     | Tuesday, 27 Feb | [FreeRTOS Part5](test)       |  
      |-----------------|----------------------------|------------|
-     | Friday, 2 Mar | [Reliability of Software Part 2](test)       |    
+     | Friday, 2 Mar | [Reliability of Software Part 1](test)       |    
 -----|-----------------|----------------------------|------------|
-9    | Monday, 5 Mar | [Reliability of Software Part 3](test)       | 
+9    | Monday, 5 Mar | [Reliability of Software Part 2](test)       | 
      |-----------------|----------------------------|------------|
      | Tuesday, 6 Mar | Midterm      |  
      |-----------------|----------------------------|------------|
