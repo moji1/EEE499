@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Labs</title>
+  <title>FreeRTOS Tutorial-1</title>
   <meta name="description" content="">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/Labs/">
+  <link rel="canonical" href="http://localhost:4000/labssrc/tutorial/FreeRTOS1.html">
   <link rel="alternate" type="application/rss+xml" title="EEE499- Real-Time Embedded System Design Course Page (Winter 2018)" href="/feed.xml">
   
   
@@ -100,47 +100,54 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Labs</h1>
+    <h1 class="post-title">FreeRTOS Tutorial-1</h1>
   </header>
 
   <div class="post-content">
-    <table>
-  <thead>
-    <tr>
-      <th>Start</th>
-      <th>Description</th>
-      <th>Submit</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>9 Jan</td>
-      <td><a href="http://localhost:4000/labssrc/lab1/lab1.html">Lab 1 : Introduction to Arduino and embedded systems</a></td>
-      <td>31 Jan</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td>31 Jan</td>
-      <td><a href="http://localhost:4000/labssrc/lab2/lab2.html">Lab 2 : Real-Time Scheduler</a></td>
-      <td>15 Feb</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td>15 Feb</td>
-      <td><a href="http://localhost:4000/labssrc/lab3/lab3.html">Lab 3: Design a Digital watch Using FreeRTOS</a></td>
-      <td>15 Mar</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td>15 Mar</td>
-      <td><a href="http://localhost:4000/schedule.md">Lab 4: Design a Digital watch Using Papyrus-RT</a></td>
-      <td>6  Apr</td>
-    </tr>
-  </tbody>
-</table>
+    <h2 id="introduction">Introduction</h2>
+
+<p>To use FreeRTOS, we will use a special version that runs in simulation mode in Windows. The simulator is included in the source files and is included in the .exe file that is created during compilation.</p>
+
+<p>We will use Eclipse and the MinGW compiler that is already installed on the lab machines.</p>
+
+<p>The objective of this tutorial is to explore the FreeRTOS code, configure the system and create simple tasks.</p>
+
+<h2 id="eclipse-configuration">Eclipse Configuration</h2>
+
+<p>To get started, run Eclipse for C ++ Developers . Download the <a href="http://localhost:4000/assets/docs/EmptyFreeRTOSApp.zip">start code </a>, but do not unzip the file.</p>
+
+<p>In Eclipse, go to File&gt; Import&gt; General&gt; Existing Projects into Workspace . Press Next and in the next window select the Select archive file option . Tap Browse … and navigate to where the start code was downloaded. Tap Finish .</p>
+
+<p><img src="fig1.png" alt="alt text" /></p>
+
+<p>You should be able to compile the project into Release. To make sure you can properly start the project, add in the function <code class="highlighter-rouge">main()</code> before the loop for, the line <code class="highlighter-rouge">printf("Hello World!");</code> then compile again.</p>
+
+<p>To start the simulator, using the Windows command prompt ( Start&gt; cmd ), navigate to where the .exe file is located (in the directory containing your workspace, for example, <code class="highlighter-rouge">C:\Users\lapointe\cpp-workspace\EmptyFreeRTOSApp\Release</code>). When you are in the right directory, launch your .exe . It should show Hello World! .</p>
+
+<p>You now have a functional source code and configuration of the FreeRTOS which can be run in simulation mode.  Remember the steps to follow for the lab 3. The fllowing figure shows an overview of the code structures which includes FreeRTOS source code, windows port and configuration file.</p>
+
+<p><img src="fig2.png" alt="alt text" /></p>
+
+<h2 id="exploration-of-freertos">Exploration of FreeRTOS</h2>
+<p>Referring to the code provided and FreeRTOS book, answer the following questions. You will have to give them to your instructor before the beginning of the lab 3. The answers will be counted in the laboratory 3.</p>
+
+<ol>
+  <li>What are the possible statuses of a task?</li>
+  <li>In the present configuration, is the OS scheduling cooperative or preemptive?</li>
+  <li>What is the size of the FreeRTOS heap?</li>
+  <li>Are dynamic memory allocation error handling supported?</li>
+  <li>What implementation of <code class="highlighter-rouge">malloc()</code> and <code class="highlighter-rouge">free()</code> is used? check heap_* file and explain your answer.</li>
+  <li>What is the Task Control Block for ? How is it defined and where? What information does it contain?</li>
+  <li>Explain how xTaskCreate works.</li>
+</ol>
+
+<h2 id="creation-of-some-tasks">Creation of some tasks.</h2>
+<ul>
+  <li>Create two tasks. One will display “Hello” and the other “World”. Observe the behavior of the system. What do you notice?</li>
+  <li>Implement examples 1-3 of Chapter 3 of <a href="https://freertos.org/Documentation/161204_Mastering_the_FreeRTOS_Real_Time_Kernel-A_Hands-On_Tutorial_Guide.pdf">Mastering the FreeRTOS Real Time Kernel</a></li>
+</ul>
+
+<p>Note: You must use fflush(stdout) after using printf().</p>
 
   </div>
 
