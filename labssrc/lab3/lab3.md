@@ -55,11 +55,21 @@ There are many ways to implement the functional requirements, however your solut
 7. Follow the naming convention of FreeRTOS.
 
 
+### Parts 
+
+Do not try to implement all features of the watch at once. After defining the task configuration we recommend to implement the watch in three parts.
+1. Develop a simple watch that only shows times. To do that you have to complete the implementation of the TimeTracker task which is a periodic task. Its period should be correlated to the watch resolution. Since you do not have the implementation of Display task, so to test this task using `printf`.
+
+2. Develop Display, Read-key and Core tasks. Display task should read messages from a queue and print messages in the display. Read-Key is a periodic task that checks for input from a user and forwards the pressed keys to the Core task.  Read-Key should filter the pressed keys and pass only keys which are required to implement the watch. Finally, implement a Core task which receives keys from Read-Key task and controls the watch based on them. For instance switch to Stopwatch if `0` is pressed. Core task is required to communicate with other tasks to control the watch, so define related queues to manage the communication between Core task and others.
+
+3. Develop Stopwatch  and then integrate the Core task with TimeTracker and Stopwatch tasks. During this step, you need to define mutexes to manage the shared resources. The main logic for switching between different features (Stopwatch and TimeTracker) should be implemented by Core task. Finally, add the alarm functionality using a timer which  needs to be managed by the Core task.
+
+
 ### Hints
 
 Here are some hints which may be helpful during implementation:
 
-1. Do not try to implement all features of the watch at once. We recommend, first, develop a simple watch that only shows times, then add the stopwatch and alarm functionalities.  
+
 2. Use `getch()` and `scanf()` functions to read keys and values accordingly. Remember to `fflush(stdin)` after each use of them. To use `getch()` you have to include `conio.h`.
 3. Use `printf` for printing. Remember to `fflush(stdout)` after each use.
 4. Use `Beep()` function for beeping which is required for the alarm service. You need to include `Windows.h`. Refer to the following [link](https://msdn.microsoft.com/en-us/library/windows/desktop/ms679277%28v=vs.85%29.aspx) for more detail. 
