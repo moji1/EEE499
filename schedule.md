@@ -40,7 +40,7 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Tuesday, 13 Feb | [FreeRTOS Tutorial]({{ "labssrc/tutorial/FreeRTOS1.html" | absolute_url }})       |  
      |-----------------|----------------------------|------------|
-     | Friday, 16 Feb | [FreeRTOS Part2](test)       |    
+     | Friday, 16 Feb | [FreeRTOS Part2]({{ "/assets/docs/freertos2.pdf" | absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
 7    | Monday, 19 Feb | [Reading Week](test)       | 
      |-----------------|----------------------------|------------|
