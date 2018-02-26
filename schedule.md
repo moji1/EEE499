@@ -48,11 +48,11 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Friday, 23 Feb | [Reading Week](test)       |    
 -----|-----------------|----------------------------|------------|
-8    | Monday, 26 Feb | [FreeRTOS Part3](test)       | 
+8    | Monday, 26 Feb | [FreeRTOS Part3]({{ "/assets/docs/freertos3.pdf" | absolute_url }})       | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 27 Feb | [FreeRTOS Part4](test)       |  
+     | Tuesday, 27 Feb | [FreeRTOS Part4]({{ "/assets/docs/freertos4.pdf" | absolute_url }})       |  
      |-----------------|----------------------------|------------|
-     | Friday, 2 Mar | [FreeRTOS Part5](test)       |    
+     | Friday, 2 Mar | [FreeRTOS Part5]({{ "/assets/docs/freertos5.pdf" | absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
 9    | Monday, 5 Mar | [Reliability of Software](test)       | 
      |-----------------|----------------------------|------------|
