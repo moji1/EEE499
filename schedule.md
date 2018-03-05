@@ -54,7 +54,7 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Friday, 2 Mar | [FreeRTOS Part5]({{ "/assets/docs/freertos5.pdf" | absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
-9    | Monday, 5 Mar | [Reliability of Software](test)       | 
+9    | Monday, 5 Mar | [Expressing Software Models]({{ "/assets/docs/SoftwareModelling.pdf" |  absolute_url }})        | 
      |-----------------|----------------------------|------------|
      | Tuesday, 6 Mar | Midterm      |  
      |-----------------|----------------------------|------------|
