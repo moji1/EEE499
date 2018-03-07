@@ -58,23 +58,23 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Tuesday, 6 Mar | Midterm      |  
      |-----------------|----------------------------|------------|
-     | Friday, 9 Mar | [Expressing Software Models](test)       |    
+     | Friday, 9 Mar | [UML-RT 1](test)       |    
 -----|-----------------|----------------------------|------------|
-10   | Monday, 12 Mar | [Modeling Real-Time Systsem 1](test)       | 
+10   | Monday, 12 Mar | [UML-RT 2](test)       | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 13 Mar | [Modeling Real-Time Systsem 2](test)       |  
+     | Tuesday, 13 Mar | [Papyrus-RT Tutorial-1]({{ "labssrc/tutorial2/PapyrusRT1.html" | absolute_url }})         |  
      |-----------------|----------------------------|------------|
-     | Friday, 16 Mar | [Modeling Real-Time Systsem 3](test)       |    
+     | Friday, 16 Mar | [UML-RT 3](test)       |    
 -----|-----------------|----------------------------|------------|
-11   | Monday, 19 Mar | [Modeling Real-Time Systsem 3](test)      | 
+11   | Monday, 19 Mar | [UML-RT 4](test)      | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 20 Mar | Reliability Quiz           |  
+     | Tuesday, 20 Mar | Reliability-1            |  
      |-----------------|----------------------------|------------|
-     | Friday, 23 Mar | [Modeling Real-Time Systsem 5](test)       |    
+     | Friday, 23 Mar | [Reliability-2](test)       |    
 -----|-----------------|----------------------------|------------|
-12   | Monday, 26 Mar | [Excercise With Modeling](test)       | 
+12   | Monday, 26 Mar | [Reliability-Excercise ](test)       | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 27 Mar | [Conclusion On Modeling](test)       |  
+     | Tuesday, 27 Mar | Reliability Quiz       |  
      |-----------------|----------------------------|------------|
      | Friday, 30 Mar |     Good Friday  |    
 -----|-----------------|----------------------------|------------|
