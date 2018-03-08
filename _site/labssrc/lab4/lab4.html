@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Lab4</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/labssrc/lab4/lab4.html">
+  <link rel="alternate" type="application/rss+xml" title="EEE499- Real-Time Embedded System Design Course Page (Winter 2018)" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">EEE499- Real-Time Embedded System Design Course Page (Winter 2018)</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/404.html"></a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/"></a>
+            
+          
+            
+            
+            <a class="page-link" href="/info/">Course Information</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/Labs/">Labs</a>
+            
+          
+            
+            
+            <a class="page-link" href="/assets/main.css"></a>
+            
+          
+            
+            
+            <a class="page-link" href="/Schedule/">Schedule</a>
+            
+          
+            
+            
+            <a class="page-link" href="/feed.xml"></a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Lab4</h1>
+  </header>
+
+  <div class="post-content">
+    <h2 id="objectives">Objectives</h2>
+
+<p>This lab is an introduction to develop a real-time software based on UML-RT language. You will design a simple digital watch which will help you to understand the UML-RT concepts effectively by applying them in practice. The lab covers the main concepts of UML-RT (structural modeling, behavioral modeling, Timers, and code generation).</p>
+
+<p>Show results of your work to your instructor weekly.</p>
+
+<h2 id="digital-watch-description">Digital Watch Description</h2>
+
+<p>The functionality of the watch is same as <a href="http://localhost:4000/labssrc/lab3/lab3.html">Lab3</a>.</p>
+
+<h3 id="non-functional-requirements">Non-functional Requirements</h3>
+<p>Download <a href="http://localhost:4000/assets/docs/DigitalWatch-UMLRT.zip">this papyrus project</a> and use it as initial project for your solution. You can add a new capsule to the project but the existing capsules  in the model which are explained below must be part of your solution. Do not touch the <code class="highlighter-rouge">DigitalWatch.controllers</code> file which is located in the project’s root.</p>
+
+<ol>
+  <li><strong>Core</strong> capsule should provide the core services and controls the watch.</li>
+  <li><strong>TimeTracker</strong> capsule should track the progress of time.</li>
+  <li><strong>Stopwatch</strong> should provide the stopwatch services.</li>
+  <li><strong>Display</strong> capsule works as the gatekeeper for showing a message on display. None of the capsules can write directly to the command line. All requests should be sent to <em>Display</em> capsule.</li>
+  <li><strong>Readkey</strong> capsule manages reading the keys and passes them to the <em>Core</em> task.</li>
+  <li><strong>DigitalWatch</strong> capsule the top capsule.</li>
+  <li>
+    <p><strong>Alarm</strong> capsule manage the alarm functionality.</p>
+  </li>
+  <li>
+    <p>There is no requirement for resource management.</p>
+  </li>
+  <li>
+    <p>The time resolution for the watch should be 500ms.</p>
+  </li>
+  <li>
+    <p>The stopwatch’s counter resolution should be 200ms.</p>
+  </li>
+  <li>
+    <p>The watch must be displayed in the format <code class="highlighter-rouge">hh:mm:ss</code> and updates every second.</p>
+  </li>
+  <li>The stopwatch must be displayed in the format <code class="highlighter-rouge">hh:mm:ss:ms</code> where ms is the milliseconds.</li>
+</ol>
+
+<h3 id="parts">Parts</h3>
+
+<p>Follow the iterative process as explaied in <a href="http://localhost:4000/labssrc/lab3/lab3.html">Lab3</a>.</p>
+
+<h3 id="hints">Hints</h3>
+
+<p>Here are some hints which may be helpful during implementation:</p>
+
+<ol>
+  <li>
+    <p>Use the following code for reading a key without waiting for fo the end of line character.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">struct</span> <span class="n">termios</span> <span class="n">t</span><span class="p">;</span> 
+ <span class="n">tcgetattr</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">);</span> 
+ <span class="n">t</span><span class="p">.</span><span class="n">c_lflag</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">ICANON</span><span class="p">;</span> 
+ <span class="n">tcsetattr</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span> <span class="n">TCSANOW</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">);</span> 
+ <span class="kt">char</span> <span class="n">key</span><span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>for beep use <code class="highlighter-rouge">printf("\a")</code></p>
+  </li>
+</ol>
+
+<h2 id="lab-report">Lab report</h2>
+
+<p>Your lab report should include a cover page, a brief introduction, discussion, and conclusion.</p>
+
+<p>Your discussion should explain your design in detail.</p>
+
+<p>Use the following format for your <a href="http://localhost:4000/assets/docs/lab-report.docx">report</a>.</p>
+
+<h3 id="submission">Submission</h3>
+
+<p>You must submit your lab report in <em>PDF</em> format and your code by e-mail in a <em>.zip</em> file.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <!--
+    <h2 class="footer-heading">EEE499- Real-Time Embedded System Design Course Page (Winter 2018)</h2>
+    -->
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Copyright © 2017 Mojtaba Bagherzadeh. All Rights Reserved.
+            
+            </li>
+            
+            <li><a href="mailto:mojtaba@cs.queensu.ca">mojtaba@cs.queensu.ca</a></li>
+            
+        </ul>
+      </div>
+      <!--
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+      -->
+      <!--
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+     -->
+    </div>
+    
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

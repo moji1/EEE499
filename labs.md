@@ -12,4 +12,4 @@ permalink: /Labs/
 |-----------------|----------------------------|------------|
 | 15 Feb          | [Lab 3: Design a Digital watch Using FreeRTOS]({{ "labssrc/lab3/lab3.html" | absolute_url }})       | 15 Mar     | 
 |-----------------|----------------------------|------------|
-| 15 Mar          | [Lab 4: Design a Digital watch Using Papyrus-RT]({{ "schedule.md" | absolute_url }})       | 6  Apr     | 
+| 15 Mar          | [Lab 4: Design a Digital watch Using Papyrus-RT]({{ "labssrc/lab4/lab4.html" | absolute_url }})       | 6  Apr     | 
