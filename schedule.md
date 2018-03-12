@@ -58,21 +58,21 @@ Week | Date            | Description        |
      |-----------------|----------------------------|------------|
      | Tuesday, 6 Mar | Midterm      |  
      |-----------------|----------------------------|------------|
-     | Friday, 9 Mar | [UML-RT 1](test)       |    
+     | Friday, 9 Mar | [UML-RT 1]({{ "/assets/docs/UML-RT1.pdf" |  absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
-10   | Monday, 12 Mar | [UML-RT 2](test)       | 
+10   | Monday, 12 Mar | [UML-RT 2]({{ "/assets/docs/UML-RT2.pdf" |  absolute_url }})       | 
      |-----------------|----------------------------|------------|
      | Tuesday, 13 Mar | [Papyrus-RT Tutorial-1]({{ "labssrc/tutorial2/PapyrusRT1.html" | absolute_url }})         |  
      |-----------------|----------------------------|------------|
-     | Friday, 16 Mar | [UML-RT 3](test)       |    
+     | Friday, 16 Mar | [UML-RT 3]({{ "/assets/docs/UML-RT3.pdf" |  absolute_url }})       |    
 -----|-----------------|----------------------------|------------|
-11   | Monday, 19 Mar | [UML-RT 4](test)      | 
+11   | Monday, 19 Mar | [UML-RT 4]({{ "/assets/docs/UML-RT4.pdf" |  absolute_url }})      | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 20 Mar | Reliability-1            |  
+     | Tuesday, 20 Mar | [Reliability-1]()            |  
      |-----------------|----------------------------|------------|
-     | Friday, 23 Mar | [Reliability-2](test)       |    
+     | Friday, 23 Mar | [Reliability-Excercise](test)       |    
 -----|-----------------|----------------------------|------------|
-12   | Monday, 26 Mar | [Reliability-Excercise ](test)       | 
+12   | Monday, 26 Mar | [Conclusion ](test)         | 
      |-----------------|----------------------------|------------|
      | Tuesday, 27 Mar | Reliability Quiz       |  
      |-----------------|----------------------------|------------|
