@@ -68,9 +68,9 @@ Week | Date            | Description        |
 -----|-----------------|----------------------------|------------|
 11   | Monday, 19 Mar | [UML-RT 4]({{ "/assets/docs/UML-RT4.pdf" |  absolute_url }})      | 
      |-----------------|----------------------------|------------|
-     | Tuesday, 20 Mar | [Reliability-1]()            |  
+     | Tuesday, 20 Mar | [Reliability-1]({{ "/assets/docs/Reliability.pdf" |  absolute_url }})            |  
      |-----------------|----------------------------|------------|
-     | Friday, 23 Mar | [Reliability-Excercise](test)       |    
+     | Friday, 23 Mar | [Reliability-Excercise]({{ "/assets/docs/Reliability.pdf" |  absolute_url }})        |    
 -----|-----------------|----------------------------|------------|
 12   | Monday, 26 Mar | [Conclusion ](test)         | 
      |-----------------|----------------------------|------------|
