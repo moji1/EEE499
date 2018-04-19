@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title></title>
-  <meta name="description" content="Lab1 is available here, its due date is 31 Jan 2018">
+  <title>Task Profiling</title>
+  <meta name="description" content="">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/jekyll/update/2018/01/08/wellcomemessage.html">
+  <link rel="canonical" href="http://localhost:4000/labssrc/exercise/exercise.html">
   <link rel="alternate" type="application/rss+xml" title="EEE499- Real-Time Embedded System Design Course Page (Winter 2018)" href="/feed.xml">
   
   
@@ -106,24 +106,34 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline"></h1>
-    <p class="post-meta">
-      <time datetime="2018-01-08T00:59:18-05:00" itemprop="datePublished">
-        
-        Jan 8, 2018
-      </time>
-      </p>
+    <h1 class="post-title">Task Profiling</h1>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <p>Lab1 is available <a href="http://localhost:4000/labssrc/lab1/lab1.html">here</a>, its due date is 31 Jan 2018</p>
+  <div class="post-content">
+    <h2 id="introduction">Introduction</h2>
+<p>As we discussed during the course, there are two approaches to measure the task execution time. (1) static analysis (2) task profiling.
+During this exercise, you will apply task profiling in the context of FreeRTOS and digital watch application. After calculation of execution time for all tasks, you will perform the schedulability analysis for your digital watch application and verify if any task misses its deadline.</p>
+
+<h2 id="profiling-of-digital-watch">Profiling of Digital watch</h2>
+<p>The primary goal of the profiling is to execute the application in many scenarios for different input as much as possible and collect the execution time for each scenario. After collecting data, analyze the data and calculate the worst-case execution time for each task. To profile the digital watch application follow these steps:</p>
+
+<p>1- Replace the read-key task with another task that generates different inputs for the watch. You need to implement an enumeration technique that generates all possible input for the digital watch.</p>
+
+<p>2-  instrument the task function to log the tick count and beginning and end of each task. This can be done using <code class="highlighter-rouge">xTaskGetTickCount</code> function.</p>
+
+<p>3-  After collecting the data, calculate worst-case execution time for each task.</p>
+
+<h2 id="schedulability-analysis">Schedulability analysis</h2>
+<p>extract a task model of your digital watch solution and perform the schedulability analysis using response time analysis.</p>
+
+<h2 id="submission">Submission</h2>
+<p>Submit your solution as part of the Lab4.</p>
 
   </div>
 
-  
 </article>
 
       </div>
